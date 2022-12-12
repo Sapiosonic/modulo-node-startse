@@ -40,6 +40,7 @@ app.get('/users/:userId', (request, response) => {
   return response.send(user)
 });
 
+//Method POST
 app.post('/users', (request, response) => {
   const newUser = request.body;
 
@@ -49,6 +50,7 @@ app.post('/users', (request, response) => {
 
 });
 
+//Method PUT
 app.put("/users/:userId", (request, response) => {
   const userId = request.params.userId;
   const updatedUser = request.body;
@@ -61,4 +63,13 @@ app.put("/users/:userId", (request, response) => {
   });
 
   return response.send(updatedUser);
+});
+
+//Method DELETE status 204
+app.delete('/users/:userId', (request, response) => {
+  const userId = request.params.userId;
+
+  users = users.filter((user) => user.id !== Number(userId));
+
+  return response.status(StatusCodes.NO_CONTENT).send();
 });
