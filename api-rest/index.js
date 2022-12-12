@@ -2,7 +2,7 @@ import express from 'express';
 import { StatusCodes } from 'http-status-codes'; 
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 let users = [
   {
     id: 1,
@@ -26,12 +26,12 @@ app.get('/', (request, response) => {
   return response.send('<h1>Trabalhando com servidor express.</h1>');
 });
 
-//this route returns a list of users
+//this route returns a list of users status 200
 app.get('/users', (request, response) => {
   return response.send(users);
 });
 
-//this route returns a specific user in a list of users using method find
+//this route returns a specific user in a list of users using method find status 200
 app.get('/users/:userId', (request, response) => {
   const userId = request.params.userId;
   const user = users.find(user => {
@@ -40,7 +40,7 @@ app.get('/users/:userId', (request, response) => {
   return response.send(user)
 });
 
-//Method POST
+//Method POST status 201
 app.post('/users', (request, response) => {
   const newUser = request.body;
 
@@ -50,7 +50,7 @@ app.post('/users', (request, response) => {
 
 });
 
-//Method PUT
+//Method PUT status 200
 app.put("/users/:userId", (request, response) => {
   const userId = request.params.userId;
   const updatedUser = request.body;
