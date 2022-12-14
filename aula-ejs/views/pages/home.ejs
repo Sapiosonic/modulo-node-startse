@@ -12,9 +12,12 @@
   <h1>EJS no Tech Academy</h1>
   <ul>
     <% for(let i=0; i < articles.length; i++){%>
-      <li><a href="./artigos/<%=articles[i].id%>"</a><%=articles[i].title%></li>
-    <%}%>
-    } 
+      <li>
+        <a href="./artigos/<%= articles[i].id%>">
+        <%=articles[i].title%></a></li>
+    <% }%>
   </ul>
+
+  <%- include('../layout/footer.ejs') %>
 </body>
 </html>
