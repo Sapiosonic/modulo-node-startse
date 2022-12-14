@@ -16,3 +16,10 @@ app.get('/', (request, response) => {
   response.render('pages/home', {title: 'EJS', articles});
 });
 
+app.get('/artigos/:articleId', (request, response) => {
+  const articleId = request.params.articleId;
+  const article = ArticleService.getArticlesById(articleId);
+  const title = (article) ? article.title : 'Artigo não encontrado';
+  response.render('pages/artigos', { title, article });
+});
+

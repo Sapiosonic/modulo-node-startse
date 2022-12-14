@@ -19,7 +19,7 @@ function getArticles(){
 
 function getArticlesById(articleId){
   return articles.find(article => {
-    article.id === Number(articleId)
+    return article.id === Number(articleId)
   });
 }
 

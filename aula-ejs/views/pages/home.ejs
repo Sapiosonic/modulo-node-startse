@@ -9,6 +9,12 @@
   </title>
 </head>
 <body>
-  EJS no Tech Academy
+  <h1>EJS no Tech Academy</h1>
+  <ul>
+    <% for(let i=0; i < articles.length; i++){%>
+      <li><a href="./artigos/<%=articles[i].id%>"</a><%=articles[i].title%></li>
+    <%}%>
+    } 
+  </ul>
 </body>
 </html>
